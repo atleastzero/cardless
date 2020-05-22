@@ -29,11 +29,11 @@ class _SignInState extends State<SignIn> {
           vertical: 20,
           horizontal: 50,
         ),
-        child: Form(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Column(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Form(
+              child: Column(
                 children: <Widget>[
                   SizedBox(
                     height: 30,
@@ -72,37 +72,37 @@ class _SignInState extends State<SignIn> {
                   ),
                 ],
               ),
-              Column(
-                children: <Widget>[
-                  Text("Not what you're looking for?"),
-                  RaisedButton(
-                    color: Colors.brown[400],
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.person_add,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Register",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      widget.toggleView();
-                    },
+            ),
+            Column(
+              children: <Widget>[
+                Text("Not what you're looking for?"),
+                RaisedButton(
+                  color: Colors.brown[400],
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.person_add,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Register",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                ],
-              )
-            ],
-          ),
+                  onPressed: () {
+                    widget.toggleView();
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
