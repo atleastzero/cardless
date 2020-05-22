@@ -12,6 +12,7 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   String email = '';
   String password = '';
@@ -33,12 +34,14 @@ class _RegisterState extends State<Register> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Form(
+              key: _formKey,
               child: Column(
                 children: <Widget>[
                   SizedBox(
                     height: 30,
                   ),
                   TextFormField(
+                    validator: (val) => val.isEmpty ? "Cannot be empty" : null,
                     onChanged: (val) {
                       setState(() {
                         email = val;
@@ -66,8 +69,10 @@ class _RegisterState extends State<Register> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () async {
-                      print(email);
-                      print(password);
+                      if (_formKey.currentState.validate()) {
+                        print(email);
+                        print(password);
+                      }
                     },
                   ),
                 ],

@@ -11,6 +11,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  final _formKey = GlobalKey<FormState>();
   final AuthService _auth = AuthService();
 
   String email = '';
@@ -66,8 +67,10 @@ class _SignInState extends State<SignIn> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () async {
-                      print(email);
-                      print(password);
+                      if (_formKey.currentState.validate()) {
+                        print(email);
+                        print(password);
+                      }
                     },
                   ),
                 ],
